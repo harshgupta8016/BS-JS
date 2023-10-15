@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: mymove 10s infinite;
+  animation-play-state: paused;
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 2000px;}
+}
+</style>
+</head>
+<body>
+
+<p>Click the buttons to Play/Pause the animation:</p>
+<button onclick="myPlayFunction()">Start</button>
+<button onclick="myPauseFunction()">Stop</button>
+
+<script>
+function myPlayFunction() {
+  document.getElementById("myDIV").style.animationPlayState = "running";
+}
+
+function myPauseFunction() {
+  document.getElementById("myDIV").style.animationPlayState = "paused";
+}
+</script>
+
+<div id="myDIV"> <img src="train.png"></div>
+
+</body>
+</html>

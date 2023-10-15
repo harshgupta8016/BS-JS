@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <span id="nameError" class="error"></span><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label for="website">Website:</label>
+        <input type="text" id="website" name="website">
+        <span id="websiteError" class="error"></span><br><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <span id="messageError" class="error"></span><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const form = document.getElementById('myForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const websiteInput = document.getElementById('website');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const websiteError = document.getElementById('websiteError');
+        const messageError = document.getElementById('messageError');
+
+        form.addEventListener('submit', function (e) {
+            let valid = true;
+
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'This field is required';
+                nameInput.style.borderColor = 'red';
+                valid = false;
+            } else {
+                nameError.textContent = '';
+                nameInput.style.borderColor = '';
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Valid email address is required';
+                emailInput.style.borderColor = 'red';
+                valid = false;
+            } else {
+                emailError.textContent = '';
+                emailInput.style.borderColor = '';
+            }
+
+            if (websiteInput.value.trim() === '') {
+                websiteError.textContent = 'Valid website is required';
+                websiteInput.style.borderColor = 'red';
+                valid = false;
+            } else {
+                websiteError.textContent = '';
+                websiteInput.style.borderColor = '';
+            }
+
+            if (messageInput.value.trim() === '') {
+                messageError.textContent = 'This field is required';
+                messageInput.style.borderColor = 'red';
+                valid = false;
+            } else {
+                messageError.textContent = '';
+                messageInput.style.borderColor = '';
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
